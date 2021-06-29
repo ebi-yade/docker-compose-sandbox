@@ -4,10 +4,13 @@ services:
   writer:
     build: . # building this container will create /var/shared/hello_world.txt
     volumes:
-      - /var/shared
+      - named-data:/var/shared
 
   reader:
     image: debian:10-slim
     tty: true
     volumes:
-      - /var/shared
+      - named-data:/var/shared
+
+volumes:
+  named-data:

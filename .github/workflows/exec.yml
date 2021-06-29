@@ -1,0 +1,17 @@
+name: exec
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Temporary Actions
+        run: bash github-actions.sh

@@ -1,0 +1,13 @@
+version: "3.5"
+
+services:
+  writer:
+    build: . # building this container will create /var/shared/hello_world.txt
+    volumes:
+      - /var/shared
+
+  reader:
+    image: debian:10-slim
+    tty: true
+    volumes:
+      - /var/shared
